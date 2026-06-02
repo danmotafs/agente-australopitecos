@@ -1,193 +1,208 @@
 # 🛡️ Australopitecos
 
-### Segurança: nosso instinto mais antigo.
+### Segurança: nosso instinto mais antigo
 
-Australopitecos é um aplicativo Android de segurança pessoal que combina monitoramento por voz, palavras-gatilho, geolocalização e protocolos de emergência para auxiliar usuários em situações de risco.
+Australopitecos é um aplicativo Android de segurança pessoal desenvolvido para auxiliar usuários em situações de risco através de monitoramento por voz, palavras-gatilho, geolocalização e protocolos de emergência.
 
-O projeto foi desenvolvido como um MVP funcional focado em acionamento rápido e discreto de contatos de emergência.
+O projeto foi construído como um MVP funcional utilizando Kotlin e Jetpack Compose, com foco em acionamento rápido, discreto e eficiente de contatos de emergência.
 
 ---
 
-# Funcionalidades
+## 🚀 Funcionalidades
 
-## 🎙️ Monitoramento por voz
+### 🎙️ Monitoramento por voz
 
 Monitora continuamente frases e palavras previamente definidas pelo usuário.
 
----
+### 🚨 Palavras-gatilho
 
-## 🚨 Palavra-gatilho
+Ao detectar uma palavra ou frase de emergência, o aplicativo executa automaticamente o protocolo de segurança.
 
-Ao detectar um gatilho de emergência:
+### 📍 Geolocalização
 
-* interrompe o monitoramento
-* captura a localização atual
-* gera uma mensagem de emergência
-* aciona o protocolo de segurança
+Captura a localização atual do dispositivo e gera um link compartilhável do Google Maps.
 
----
+### 💬 Integração WhatsApp
 
-## 📍 Localização GPS
+Gera automaticamente mensagens de emergência contendo:
 
-Captura automaticamente a localização do usuário.
-
-Exemplo:
-
-https://maps.google.com/?q=latitude,longitude
-
----
-
-## 💬 Integração WhatsApp
-
-Gera automaticamente uma mensagem contendo:
-
-* alerta de emergência
+* alerta de risco
 * horário do incidente
-* link da localização
+* localização atual
 
----
-
-## 👥 Múltiplos contatos
+### 👥 Múltiplos contatos
 
 Permite cadastrar diversos contatos de emergência.
 
----
+### 🕶️ Modo Stealth
 
-## 🕶️ Modo Stealth
+Oculta a interface principal após o acionamento de emergência.
 
-Após o acionamento:
+### 📚 Histórico local
 
-* a interface é ocultada
-* a tela torna-se discreta
-* reduz a percepção de uso do aplicativo
+Armazena localmente os incidentes registrados.
 
----
-
-## 📚 Histórico Local
-
-Armazena registros de incidentes diretamente no dispositivo.
-
----
-
-## 📄 Exportação CSV
+### 📄 Exportação CSV
 
 Permite exportar registros para análise posterior.
 
----
+### 🔒 Backup protegido
 
-## 🔒 Backup Protegido
+Geração de cópias de segurança dos dados locais.
 
-Geração de cópias de segurança dos registros locais.
+### 📊 Dashboard Executivo
 
----
-
-## 📊 Dashboard Executivo
-
-Exibe:
+Exibe indicadores operacionais do sistema:
 
 * incidentes registrados
 * contatos cadastrados
+* histórico
+* backup
 * status operacional
-* histórico
-* backup
+
+### ⚙️ Configurações
+
+Centralização de recursos administrativos do aplicativo.
 
 ---
 
-## ⚙️ Configurações
-
-Área centralizada para:
-
-* contatos
-* histórico
-* exportação
-* backup
-* informações do aplicativo
-
----
-
-# Arquitetura
+## 🏗️ Arquitetura
 
 ```text
-Voz
- ↓
-TriggerMatcher
- ↓
-LocationProvider
- ↓
-EmergencyMessageBuilder
- ↓
-WhatsAppAlertSender
- ↓
-EmergencyIncidentStorage
- ↓
-Dashboard
+Monitoramento de Voz
+        ↓
+ TriggerMatcher
+        ↓
+ LocationProvider
+        ↓
+ EmergencyMessageBuilder
+        ↓
+ WhatsAppAlertSender
+        ↓
+ EmergencyIncidentStorage
+        ↓
+ Dashboard Executivo
 ```
 
-# Tecnologias
+---
+
+## 🛠️ Tecnologias
 
 * Kotlin
 * Jetpack Compose
 * Android SDK
-* Location Services
-* WhatsApp Intent
 * Material Design 3
+* Android Location Services
+* SharedPreferences
+* FileProvider
+* WhatsApp Intent API
 
-# Estrutura do Projeto
+---
+
+## 📂 Estrutura
 
 ```text
 app
- ├── emergency
- │   ├── EmergencyContact
- │   ├── EmergencyContactScreen
- │   ├── EmergencyDashboardScreen
- │   ├── EmergencyHistoryScreen
- │   ├── EmergencyMessageBuilder
- │   └── WhatsAppAlertSender
- │
- ├── location
- │   └── LocationProvider
- │
- ├── trigger
- │   └── TriggerMatcher
- │
- └── MainActivity
+├── emergency
+│   ├── EmergencyContact
+│   ├── EmergencyContactScreen
+│   ├── EmergencyDashboardScreen
+│   ├── EmergencyHistoryScreen
+│   ├── EmergencyMessageBuilder
+│   └── WhatsAppAlertSender
+│
+├── location
+│   └── LocationProvider
+│
+├── trigger
+│   └── TriggerMatcher
+│
+└── MainActivity
 ```
 
-# Roadmap
+---
 
-## v0.6.0
+## 📱 Como executar
 
-* melhorias visuais
-* organização da Home
-* refinamento da UX
+### Requisitos
 
-## v0.7.0
+* Android Studio Hedgehog ou superior
+* Android SDK 34+
+* Dispositivo Android físico ou emulador
 
-* integração Telegram
-* grupos de emergência
+### Instalação
 
-## v0.8.0
+```bash
+git clone https://github.com/danmotafs/agente-australopitecos.git
+```
 
-* sincronização em nuvem
+Abra o projeto no Android Studio e execute:
 
-## v1.0.0
+```txt
+Run ▶
+```
 
-* backend completo
-* painel administrativo
-* gerenciamento remoto
+---
 
-# Status
+## 🔐 Permissões necessárias
+
+O aplicativo utiliza:
+
+* Microfone
+* Localização precisa
+* Localização aproximada
+
+---
+
+## 🗺️ Roadmap
+
+### v0.6.0
+
+* Refinamento visual
+* Home reorganizada
+* Melhorias de UX
+
+### v0.7.0
+
+* Integração Telegram
+* Grupos de emergência
+
+### v0.8.0
+
+* Sincronização em nuvem
+
+### v1.0.0
+
+* Backend dedicado
+* Painel administrativo
+* Gestão remota
+
+---
+
+## 📌 Status
 
 Versão atual:
 
+```text
 v0.5.0
+```
 
-Maturidade estimada:
+Status:
 
-75%
+```text
+MVP navegável
+```
 
-# Autor
+---
+
+## 👨‍💻 Autor
 
 Daniel Mota Ferreira Silva
 
-Data & Process Manager | AI | Data Intelligence | Public Sector Innovation
+Data Intelligence • Process Management • Artificial Intelligence • Public Sector Innovation
+
+---
+
+## ⚠️ Aviso
+
+Australopitecos é um projeto em desenvolvimento e não substitui serviços oficiais de emergência ou segurança pública.
